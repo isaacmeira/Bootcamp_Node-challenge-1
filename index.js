@@ -42,6 +42,11 @@ app.get('/major', checkParam, (req, res) => {
 app.post('/check', (req, res) => {
   const { age } = req.body
 
+  if (age != age.match(/\d+/gm)) {
+    return res.redirect('/')
+  }
+  
+
   if (age >= 18) {
     return res.redirect(`/major?age=${age}`)
   } else {
