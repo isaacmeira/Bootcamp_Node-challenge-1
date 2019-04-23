@@ -19,7 +19,7 @@ app.set('view engine', 'njk')
 const checkParam = (req, res, next) => {
   const { age } = req.query
 
-  if (age === null || age === undefined) {
+  if (!age) {
     return res.redirect('/')
   }
   return next()
